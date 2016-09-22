@@ -202,8 +202,8 @@
               </div>
 
               <div class="form-group group-email" ng-class="{'has-error':notFound}" form-group>
-                <label class="col-sm-6" ng-hide="retry">Envoyer des istructions pour réinitialiser mot de passe à :</label>
-                <label class="col-sm-6" ng-show="retry">Envoyer un email pour réinitialiser mot de passe à :</label>
+                <label class="col-sm-6" ng-hide="retry">Adresse email de compte :</label>
+                <label class="col-sm-6" ng-show="retry">Adresse email de compte :</label>
                 <div class="col-sm-6">
                   <input type="text" class="form-control" name="email" placeholder="Email" form-control email-validation validate-on-blur/>
                   <small class="help-block wd-invalid-email" ng-show="validationError">Adresse email invalide</small>
@@ -216,11 +216,11 @@
                 <br/>
                 <p>{{unknownError}}</p>
               </div>
-              <button class="btn btn-forgot btn-sp-green" ng-disabled="submitting" type="submit">Réinitialiser mot de passe</button>
+              <button class="btn btn-forgot btn-sp-green" ng-disabled="submitting" type="submit">Envoyer les instructions</button>
             </form>
           </div>
         </div>
-        <a ng-show="!sent" class="to-login" href="#/" wd-back-to-login>Back to Log In</a>
+        <a ng-show="!sent" class="to-login" href="#/" wd-back-to-login>Retourner vers connexion</a>
       </div>
     </script>
     <script type="text/ng-template" id="views/reset.html">
