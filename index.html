@@ -90,7 +90,7 @@
 
         </div>
 
-        <a class="forgot multilang" href="#forgot" data-text-fr="Mot de passe oublié ?" data-text-de="Passwort vergessen">Mot de passe oublié ?</a>
+        <a class="forgot multilang" href="#forgot" data-text-fr="Mot de passe oublié ?" data-text-de="Passwort vergessen?">Mot de passe oublié ?</a>
 
       </div>
 
@@ -300,11 +300,16 @@
       <div class="logo-container">
         <img ng-show="logoUrl" class="logo img-responsive" ng-src="{{logoUrl}}"/>
       </div>
+      <div class="language-selector">
+        <div class="lang" onclick="setDefaultLocale('fr-FR')">Français</div>
+        <div class="delimiter">|</div>
+        <div class="lang" onclick="setDefaultLocale('de-DE')">Deutsch</div>
+      </div>
       <div ng-show="inError" ng-include="'views/error.html'"></div>
       <div ng-hide="inError" ng-view="">
         <!-- this will be replaced a the view, as determined by the route config in app.js -->
       </div>
-      <div class="copyright" style="clear:both;width:100%;text-align:center;display:block;color:#666;font-size:0.8em;">
+      <div class="copyright">
         Copyright © <span class="current-year">2017</span> DELTA Car Trade SA. All rights reserved. Tous droits réservés. Sämtliche Rechte vorbehalten.</div>
       <script type="text/javascript">
         $('.copyright .current-year').text((new Date()).getFullYear());
@@ -332,9 +337,9 @@
     <script type="text/javascript">
       var DEFAULT_LOCALE = navigator.languages && navigator.languages.length > 0 && navigator.languages[0] || navigator.language || 'fr-FR';
       
-      function setDefaultLanguage(locale) {
+      function setDefaultLocale(locale) {
         DEFAULT_LOCALE = locale;
-        udpateMultilang();
+        updateMultilang();
       }
 
       function updateMultilang() {
@@ -344,7 +349,7 @@
               $(this).attr('placeholder', multilang($(this).attr('data-placeholder-fr'), $(this).attr('data-placeholder-de')));  
             }
             if ($(this).text() && $(this).attr('data-text-fr')) {
-              $(this).attr('value', multilang($(this).attr('data-text-fr'), $(this).attr('data-text-de')));  
+              $(this).text(multilang($(this).attr('data-text-fr'), $(this).attr('data-text-de')));  
             }
           } else {
             if ($(this).attr('data-text-fr')) {
