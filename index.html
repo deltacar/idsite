@@ -22,17 +22,17 @@
         <div class="box row">
           <div class="email-password-area  col-xs-12" ng-class="[hasProviders ? 'small col-sm-8' : 'large col-sm-12']">
             <div class="header">
-              <span class="multilang" data-text-fr="Connexion à DeltaOnline" data-text-de="Login to DeltaOnline">Connexion à DeltaOnline</span>
+              <span class="multilang" data-text-de="Zugang zu DeltaOnline">Connexion à DeltaOnline</span>
               <!--span ng-show="canRegister" wd-can-register>
                 <span> ou </span>
                 <a href="#register">S'inscrire</a>
               </span-->
             </div>
-            <div class="alert alert-danger bad-login multilang" ng-show="errors.badLogin" data-text-fr="Adresse email ou mot de passe incorrect." data-text-de="Email address or password incorrect.">
+            <div class="alert alert-danger bad-login multilang" ng-show="errors.badLogin" data-text-de="Email address or password incorrect.">
               Adresse email ou mot de passe incorrect.
             </div>
             <div class="alert alert-danger not-found" ng-show="errors.notFound">
-              <span class="multilang" data-text-fr=">Le compte n'existe pas." data-text-de="The account doesn't exist.">Le compte n'existe pas.</span>
+              <span class="multilang" data-text-de="The account doesn't exist.">Le compte n'existe pas.</span>
               <!--a href="#/register">create an account</a>
               <span>?</span-->
             </div>
@@ -65,7 +65,7 @@
                 </div>
               </div>
               <div class="form-group group-password">
-                <label ng-class="[hasProviders ? 'col-sm-12' : 'col-sm-4']" class="multilang" data-text-fr="Mot de passe" data-text-de="Passwort">Mot de passe</label>
+                <label ng-class="[hasProviders ? 'col-sm-12' : 'col-sm-4']" class="multilang" data-text-de="Passwort">Mot de passe</label>
                 <div ng-class="[hasProviders ? 'col-sm-12' : 'col-sm-8']">
                   <input class="form-control multilang" type="password" name="password" ng-model="password" placeholder="Mot de passe" data-placeholder-fr="Mot de passe" data-placeholder-de="Passwort" />
                 </div>
@@ -73,11 +73,11 @@
               <div class="form-group group-remember-me">
                 <div class="col-sm-8" ng-class="[hasProviders ? '' : 'col-sm-offset-4']">
                   <input type="checkbox" id="remember">
-                  <label for="remember" class="multilang" data-text-fr="Rester connecté(e)" data-text-de="Stay logged in">Rester connecté(e)</label>
+                  <label for="remember" class="multilang" data-text-de="Ich möchte angemeldet bleiben">Rester connecté(e)</label>
                 </div>
               </div>
               <div>
-                <button class="login btn btn-login btn-sp-green multilang" type="submit" ng-disabled="submitting" data-text-fr="Se connecter à DeltaOnline" data-text-de="Zugang zu DeltaOnline">Se connecter à DeltaOnline</button>
+                <button class="login btn btn-login btn-sp-green multilang" type="submit" ng-disabled="submitting" data-text-de="Zugang zu DeltaOnline">Se connecter à DeltaOnline</button>
               </div>
             </form>
           </div>
@@ -90,7 +90,7 @@
 
         </div>
 
-        <a class="forgot multilang" href="#forgot" data-text-fr="Mot de passe oublié ?" data-text-de="Passwort vergessen?">Mot de passe oublié ?</a>
+        <a class="forgot multilang" href="#forgot" data-text-de="Passwort vergessen?">Mot de passe oublié ?</a>
 
       </div>
 
@@ -105,14 +105,14 @@
         <div class="box row">
           <div class="col-sm-12">
             <div class="header">
-              <span ng-show="!sent && !retry">Réinitialisation de mot de passe</span>
-              <span ng-show="retry">Le lien est éxpiré.</span>
-              <span ng-show="sent">Veuillez vérifier votre boîte email.</span>
+              <span ng-show="!sent && !retry" class="multilang" data-text-de="Passwort zurücksetzen">Réinitialisation de mot de passe</span>
+              <span ng-show="retry" class="multilang" data-text-de="EXPIRED">Le lien est éxpiré.</span>
+              <span ng-show="sent" class="multilang" data-text-de="CHECK EMAIL">Veuillez vérifier votre boîte email.</span>
 
             </div>
             <div class="wd-sent" ng-show="sent">
               <p>
-                <span>Nous avons envoyé un lien pour réinitialiser mot de passe à </span>
+                <span class="multilang" data-text-de="EMAIL SENT">Nous avons envoyé un lien pour réinitialiser mot de passe à </span>
                 <strong>{{fields.email.value}}</strong>.
               </p>
               <p>&nbsp;</p>
@@ -134,25 +134,25 @@
               </div>
 
               <div class="form-group group-email" ng-class="{'has-error':notFound}" form-group>
-                <label class="col-sm-6" ng-hide="retry">Adresse email de compte :</label>
-                <label class="col-sm-6" ng-show="retry">Adresse email de compte :</label>
+                <label class="col-sm-6 multilang" ng-hide="retry" data-text-de="Email">Adresse email de compte :</label>
+                <label class="col-sm-6 multilang" ng-show="retry" data-text-de="Email">Adresse email de compte :</label>
                 <div class="col-sm-6">
                   <input type="text" class="form-control" name="email" placeholder="Email" form-control email-validation validate-on-blur/>
-                  <small class="help-block wd-invalid-email" ng-show="validationError">Adresse email invalide</small>
-                  <small class="help-block wd-not-found" ng-show="notFound"><span>le compte n'existe pas.</span></small>
+                  <small class="help-block wd-invalid-email multilang" ng-show="validationError" data-text-de="INVALID">Adresse email invalide</small>
+                  <small class="help-block wd-not-found" ng-show="notFound"><span clas="multilang" data-text-de="DOESNT EXIST">le compte n'existe pas.</span></small>
                 </div>
               </div>
               <div class="alert alert-danger" ng-show="unknownError">
-                <strong>Excusez nous, une erreur s'est produit. Veuillez retourner sur la page précedente et essayer de nouveau.</strong>
+                <strong class="multilang" data-text-de="ERROR">Excusez nous, une erreur s'est produit. Veuillez retourner sur la page précedente et essayer de nouveau.</strong>
                 <br/>
                 <br/>
                 <p>{{unknownError}}</p>
               </div>
-              <button class="btn btn-forgot btn-sp-green" ng-disabled="submitting" type="submit">Envoyer les instructions</button>
+              <button class="btn btn-forgot btn-sp-green multilang" ng-disabled="submitting" type="submit" data-text-de="OK">Envoyer les instructions</button>
             </form>
           </div>
         </div>
-        <a ng-show="!sent" class="to-login" href="#/" wd-back-to-login>Retourner vers connexion</a>
+        <a ng-show="!sent" class="to-login multilang" href="#/" wd-back-to-login data-text-de="BACK">Retourner vers connexion</a>
       </div>
     </script>
     <script type="text/ng-template" id="views/reset.html">
@@ -284,13 +284,13 @@
       </div>
     </script>
     <script type="text/ng-template" id="views/password-error-messages.html">
-      <small class="help-block" ng-show="errors.minLength" wd-minLength>Mot de passe est trop court</small>
-      <small class="help-block" ng-show="errors.maxLength" wd-maxLength>Mot de passe est trop long</small>
-      <small class="help-block" ng-show="errors.requireNumeric" wd-requireNumeric>Mot de passe doit contenir au moins une chiffre</small>
-      <small class="help-block" ng-show="errors.requireSymbol" wd-requireSymbol>Mot de passe doit contenir au moins une lettre</small>
-      <small class="help-block" ng-show="errors.requireDiacritical" wd-requireDiacritical>Mot de passe doit content un symbol spécial</small>
-      <small class="help-block" ng-show="errors.requireUpperCase" wd-requireUpperCase>Mot de passe doit contenir une lettre majuscule</small>
-      <small class="help-block" ng-show="errors.requireLowerCase" wd-requireLowerCase>Mot de passe doit contenir une lettre minuscule</small>
+      <small class="help-block multilang" ng-show="errors.minLength" wd-minLength data-text-de="TOO SHORT">Mot de passe est trop court</small>
+      <small class="help-block multilang" ng-show="errors.maxLength" wd-maxLength data-text-de="TOO LONG">Mot de passe est trop long</small>
+      <small class="help-block multilang" ng-show="errors.requireNumeric" wd-requireNumeric data-text-de="ONE NUMBER">Mot de passe doit contenir au moins une chiffre</small>
+      <small class="help-block multilang" ng-show="errors.requireSymbol" wd-requireSymbol data-text-de="ONE LETTER">Mot de passe doit contenir au moins une lettre</small>
+      <small class="help-block multilang" ng-show="errors.requireDiacritical" wd-requireDiacritical data-text-de="ONE SPECIAL SYMBOL">Mot de passe doit content un symbol spécial</small>
+      <small class="help-block multilang" ng-show="errors.requireUpperCase" wd-requireUpperCase data-text-de="ONE UPPERCASE LETTER">Mot de passe doit contenir une lettre majuscule</small>
+      <small class="help-block multilang" ng-show="errors.requireLowerCase" wd-requireLowerCase data-text-de="ONE LOWERCASE LETTER">Mot de passe doit contenir une lettre minuscule</small>
     </script>
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -357,6 +357,24 @@
             }
           }
         });
+      }
+
+      // fill data-...-fr as default value
+      function initalizeMultilang() {
+        $('.multilang').each(function() {
+          if ($(this).is(':input')) {
+            if ($(this).attr('placeholder') && $(this).attr('data-placeholder-de')) {
+              $(this).attr('data-placeholder-fr', $(this).attr('placeholder'));  
+            }
+            if ($(this).text() && $(this).attr('data-text-de')) {
+              $(this).attr('data-text-fr', $(this).text());  
+            }
+          } else {
+            if ($(this).attr('data-text-de')) {
+              $(this).attr('data-text-fr', $(this).text());
+            }
+          }
+        }); 
       }
 
       function multilang(fr, de) {
