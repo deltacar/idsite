@@ -389,6 +389,11 @@
         initalizeMultilang();
         updateMultilang();
       });
+
+      window.onhashchange = function() {
+        initalizeMultilang();
+        updateMultilang();
+      }
     </script>
   </body>
 </html>
