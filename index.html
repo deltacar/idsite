@@ -272,12 +272,16 @@
             <p class="alert">
               Si ce problème se reproduit, veuillez contacter votre commercial Delta.        
             </p>
-            <!--div class="well text-center">
+            <div class="well text-center">
               <div class="" ng-repeat="e in errors">
                 <strong>{{e}}</strong>
               </div>
-            </div-->
-
+            </div>
+            <script type="text/javascript">
+              if ("{{e}}" == 'Login session not initialized.') {
+                document.location.href = 'http://62.2.99.251/signinpro';
+              }
+            </script>      
           </div>
         </div>
       </div>
