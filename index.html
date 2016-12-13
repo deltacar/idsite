@@ -274,16 +274,18 @@
             </p>
             <div class="well text-center">
               <div class="" ng-repeat="e in errors">
-                <strong>{{e}}</strong>
-                <script type="text/javascript">
-                  if ("{{e}}" == 'Login session not initialized.') {
-                    document.location.href = 'http://62.2.99.251/signinpro';
-                  }
-                </script>  
+                <strong class="error-msg">{{e}}</strong>          
               </div>
             </div>          
           </div>
         </div>
+        <script type="text/javascript">
+          $().ready(function() {
+            if ($('.error-view error-msg').text() == 'Login session not initialized.') {
+              document.location.href = 'http://62.2.99.251/signinpro';
+            }
+          }
+        </script>  
       </div>
     </script>
     <script type="text/ng-template" id="views/password-error-messages.html">
@@ -391,10 +393,6 @@
       $().ready(function() {
         initalizeMultilang();
         updateMultilang();
-
-        if ("{{e}}" == "Login session not initialized.") {
-      		document.location.href = 'http://62.2.99.251/signinpro';
-      	}
       });
 
       window.onhashchange = function() {
