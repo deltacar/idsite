@@ -306,8 +306,13 @@
       <div ng-show="inError" ng-include="'views/error.html'"></div>
       <div ng-hide="inError" ng-view="">
         <!-- this will be replaced a the view, as determined by the route config in app.js -->
-      </div>
-      <div class="footer">
+      </div>       
+      <script type="text/javascript">
+        $('.copyright .current-year').text((new Date()).getFullYear());
+      </script>
+    </div>
+    <div class="footer">
+      <div class="container">
         <div class="column">
           <div class="title">AutoSource</div>
           <div class="link"><a href="https://auto-source.fr" target="_blank">AutoSource France</a></div>
@@ -325,11 +330,8 @@
         </div>
         <div class="copyright">
         Copyright © <span class="current-year">2017</span> DELTA Car Trade SA. All rights reserved. Tous droits réservés. Sämtliche Rechte vorbehalten.</div>
-      </div>      
-      <script type="text/javascript">
-        $('.copyright .current-year').text((new Date()).getFullYear());
-      </script>
-    </div>
+      </div>
+    </div>     
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
