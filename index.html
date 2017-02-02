@@ -29,7 +29,7 @@
               </span-->
             </div>
             <div class="alert alert-danger bad-login multilang" ng-show="errors.badLogin" data-text-de="Email address or password incorrect.">
-              Adresse email ou mot de passe incorrect.
+              Adresse email ou mot de passe incorrect, ou compte pas encore activé.
             </div>
             <div class="alert alert-danger not-found" ng-show="errors.notFound">
               <span class="multilang" data-text-de="The account doesn't exist.">Le compte n'existe pas.</span>
@@ -410,9 +410,24 @@
         }
       }
 
+      function getIEVersion() {
+        var myNav = navigator.userAgent.toLowerCase();
+        return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
+      }
+
+
       $().ready(function() {
         initalizeMultilang();
         updateMultilang();
+
+        // warning for old browsers
+        if (document.location.protocol.indexOf('https') >= 0 && getIEVersion() && getIEVersion() <= 10) {
+          var msg = multilang( 
+            'Nous sommes désolé, mais notre site n\'est pas adapté à votre version de navigateur. Merci d\'utiliser la version 11+ ou un autre navigateur : ', 
+            'We are sorry, but our website is not adapted for your version of browser. Please use the version 11+ ou another browser: '
+          );
+          $('body').prepend('<div style="float:left;width:100%;background:#ff5522;color:white;font-size:18px;font-weight:300;padding:4px 0px 4px 10px;">' + msg + '<a href="//www.google.com/chrome" class="action" style="font-size:16px;color:white;">Google Chrome</a>, <a href="//www.mozilla.org/firefox" class="action" style="color:white;font-size:16px;">Mozilla Firefox</a></div>');
+        }
 
         setTimeout(function() {
           var err = $('.error-view .error-msg').text();
